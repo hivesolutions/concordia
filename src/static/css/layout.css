@@ -374,13 +374,13 @@ pre {
 }
 
 .timetable ul li.color-1 {
-    background: transparent url(../images/corner_red.png) no-repeat 104px 7px
+    background: transparent url(../images/corner_red.png) no-repeat 104px 7px;
 }
 
 .timetable ul li.color-2 {
-    background: transparent url(../images/corner_purple.png) no-repeat 104px 7px
+    background: transparent url(../images/corner_purple.png) no-repeat 104px 7px;
 }
 
 .timetable ul li.color-3 {
-    background: transparent url(../images/corner_yellow.png) no-repeat 104px 7px
+    background: transparent url(../images/corner_yellow.png) no-repeat 104px 7px;
 }

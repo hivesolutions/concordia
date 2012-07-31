@@ -39,6 +39,7 @@ __license__ = "GNU General Public License (GPL), Version 3"
 
 import os
 import flask
+
 import schettino
 
 app = flask.Flask(__name__)
@@ -60,48 +61,14 @@ def about():
 
 @app.route("/timetable")
 def timetable():
-    solution = []
-    solution = schettino.solve(solution, all = False)
-
-    if solution:
-        _solution = []
-        day = []
-
-        item = {}
-
-        for index in range(len(solution)):
-            if index % schettino.problem.N_HOURS == 0:
-                item = {}
-                day = []
-                _solution.append(day)
-
-            # retrieve the value (index) from the solution and then
-            # uses it to retrieve the appropriate string value using
-            # the problem definition for the resolution process
-            value = solution[index]
-            value_s = value == -1 and "&nbsp;" or _shorten_name(schettino.problem.PERSONS[value])
-
-            # retrieves the previous index (value) from the previous
-            # iteration and compares it with the current value in case
-            # the value is the same reuses the item
-            value_p = item.get("index", None)
-            if value == value_p:
-                item["size"] += 1
-            else:
-                item = {
-                    "index" : value,
-                    "name" : value_s,
-                    "time" : "12:30",
-                    "size" : 1
-                }
-                day.append(item)
-    else:
-        _solution = None
+    problem = schettino.problems.simple.SimpleProblem()
+    schettino.solve(problem, all = False)
+    solution = problem.get_structure()
 
     return flask.render_template(
         "timetable.html.tpl",
         link = "timetable",
-        solution = _solution
+        solution = solution
     )
 
 @app.errorhandler(404)
@@ -115,15 +82,6 @@ def handler_413(error):
 @app.errorhandler(BaseException)
 def handler_exception(error):
     return str(error)
-
-def _shorten_name(name):
-    parts = name.split(" ")
-    parts_length = len(parts)
-    if parts_length == 1: return name
-    first = parts[0]
-    last = parts[-1]
-
-    return first + " " + last[0] + "."
 
 def run():
     # sets the debug control in the application
