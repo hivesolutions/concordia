@@ -64,11 +64,15 @@ def timetable():
     problem = schettino.problems.simple.SimpleProblem()
     schettino.solve(problem, all = False)
     solution = problem.get_structure()
+    delta = problem.delta
+    instrumentation = problem.instrumentation
 
     return flask.render_template(
         "timetable.html.tpl",
         link = "timetable",
-        solution = solution
+        solution = solution,
+        delta = delta,
+        instrumentation = instrumentation
     )
 
 @app.errorhandler(404)
@@ -81,6 +85,12 @@ def handler_413(error):
 
 @app.errorhandler(BaseException)
 def handler_exception(error):
+    import traceback
+    import sys
+    print "Exception in user code:"
+    print '-' * 60
+    traceback.print_exc(file=sys.stdout)
+    print '-' * 60
     return str(error)
 
 def run():
