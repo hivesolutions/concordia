@@ -46,6 +46,6 @@ jQuery(document).ready(function() {
                         element.removeClass("hover");
                         setTimeout(function() {
                                     element.removeClass("top");
-                                }, 200);
+                                }, 300);
                     });
         });

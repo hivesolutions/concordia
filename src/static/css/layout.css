@@ -365,7 +365,7 @@ pre {
 }
 
 .timetable .item {
-    background: #ffffff none no-repeat 104px 7px;
+    background: #ffffff none no-repeat 157px 7px;
     border: 1px dashed #999999;
     cursor: pointer;
     height: 20px;
@@ -440,9 +440,9 @@ pre {
 }
 
 .timetable .item.width-3.position-3 {
-    background-position: 93px 7px;
-    margin-left: 55px;
-    width: 90px;
+    background-position: 86px 7px;
+    margin-left: 62px;
+    width: 83px;
     z-index: 0;
 }
 
@@ -473,5 +473,13 @@ pre {
 }
 
 .timetable .item.color-5 {
-    background-image: url(../images/corner_dark_blue.png);
+    background-image: url(../images/corner_blue.png);
+}
+
+.timetable .item.color-6 {
+    background-image: url(../images/corner_grey.png);
+}
+
+.timetable .item.color-7 {
+    background-image: url(../images/corner_brown.png);
 }
