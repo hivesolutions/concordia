@@ -408,19 +408,10 @@ pre {
     background: transparent url(../images/corner_yellow.png) no-repeat 104px 7px;
 }
 
-
-
-
-
-
-
-
-
-ul.default {
-    margin: auto;
-    padding: auto;
+.timetable ul li.color-4 {
+    background: transparent url(../images/corner_dark_red.png) no-repeat 104px 7px;
 }
 
-ul.default li {
-    background-color: transparent;
+.timetable ul li.color-5 {
+    background: transparent url(../images/corner_dark_blue.png) no-repeat 104px 7px;
 }
