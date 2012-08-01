@@ -22,3 +22,30 @@
 // __date__      = $LastChangedDate$
 // __copyright__ = Copyright (c) 2010-2012 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
+
+jQuery(document).ready(function() {
+            // retrieves all the currently available items
+            var items = jQuery(".timetable .item");
+
+            items.mouseover(function() {
+                        var element = jQuery(this);
+                        items.removeClass("hover");
+                        element.addClass("hover");
+
+                        setTimeout(function() {
+                                    var hasMouse = element.hasClass("hover");
+                                    if (!hasMouse) {
+                                        return;
+                                    }
+                                    element.addClass("top");
+                                }, 1000);
+                    });
+
+            items.mouseout(function() {
+                        var element = jQuery(this);
+                        element.removeClass("hover");
+                        setTimeout(function() {
+                                    element.removeClass("top");
+                                }, 200);
+                    });
+        });

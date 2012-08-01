@@ -85,7 +85,7 @@ body.wide {
 }
 
 body.uwide {
-    width: 920px;
+    width: 1280px;
 }
 
 body.full {
@@ -309,33 +309,33 @@ pre {
 
 .timetable {
     color: #4d4d4d;
-    font-size: 15px;    ;
+    font-size: 15px;
     margin: 20px 0px 20px 0px;
 }
 
 .timetable ul {
     float: left;
-    width: 118px;
+    width: 171px;
 }
 
 .timetable ul.extra {
     float: left;
-    width: 10px;
+    width: 13px;
 }
 
 .timetable ul.hours {
-    width: 68px;
+    width: 70px;
 }
 
 .timetable ul li {
-    border-bottom: 1px dashed #aaaaaa;
-    border-right: 1px dashed #aaaaaa;
-    line-height: 17px;
+    border-bottom: 1px dashed #cccccc;
+    border-right: 1px dashed #cccccc;
+    line-height: 20px;
     margin: 0px 0px 0px 0px;
 }
 
 .timetable ul li:hover {
-    background-color: transparent; ;
+    background-color: transparent;
 }
 
 .timetable ul:last-child li {
@@ -364,54 +364,114 @@ pre {
     border-bottom: 1px dashed #aaaaaa;
 }
 
-.timetable ul li.size-2 {
-    height: 59px;
+.timetable .item {
+    background: #ffffff none no-repeat 104px 7px;
+    border: 1px dashed #999999;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding: 12px 12px 12px 12px;
+    position: absolute;
+    text-align: left;
+    width: 146px;
+    z-index: 1;
 }
 
-.timetable ul li.size-3 {
-    height: 101px;
+.timetable .item.hover {
+    background-color: #fafafa;
 }
 
-.timetable ul li.size-4 {
-    height: 143px;
+.timetable .item.size-2 {
+    height: 65px;
 }
 
-.timetable ul li.size-5 {
-    height: 185px;
+.timetable .item.size-3 {
+    height: 110px;
 }
 
-.timetable ul li.size-6 {
-    height: 227px;
+.timetable .item.size-4 {
+    height: 155px;
 }
 
-.timetable ul li.size-7 {
-    height: 269px;
+.timetable .item.size-5 {
+    height: 200px;
 }
 
-.timetable ul li.color--1 {
-    background: transparent url(../images/pattern.png) repeat left top;
+.timetable .item.size-6 {
+    height: 245px;
 }
 
-.timetable ul li.color-0 {
-    background: transparent url(../images/corner_green.png) no-repeat 104px 7px;
+.timetable .item.size-7 {
+    height: 290px;
 }
 
-.timetable ul li.color-1 {
-    background: transparent url(../images/corner_red.png) no-repeat 104px 7px;
+.timetable .item.top {
+    z-index: 1000 !important;
 }
 
-.timetable ul li.color-2 {
-    background: transparent url(../images/corner_purple.png) no-repeat 104px 7px;
+.timetable .item.width-2 {
+    background-position: 113px 7px;
+    font-size: 12px;
+    padding: 12px 8px 12px 8px;
+    width: 110px;
 }
 
-.timetable ul li.color-3 {
-    background: transparent url(../images/corner_yellow.png) no-repeat 104px 7px;
+.timetable .item.width-3 {
+    background-position: 91px 7px;
+    font-size: 11px;
+    padding: 12px 8px 12px 8px;
+    width: 90px;
 }
 
-.timetable ul li.color-4 {
-    background: transparent url(../images/corner_dark_red.png) no-repeat 104px 7px;
+.timetable .item.width-2.position-2 {
+    background-position: 75px 7px;
+    margin-left: 72px;
+    width: 72px;
+    z-index: 2;
 }
 
-.timetable ul li.color-5 {
-    background: transparent url(../images/corner_dark_blue.png) no-repeat 104px 7px;
+.timetable .item.width-3.position-2 {
+    background-position: 65px 7px;
+    margin-left: 62px;
+    width: 62px;
+    z-index: 2;
+}
+
+.timetable .item.width-3.position-3 {
+    background-position: 93px 7px;
+    margin-left: 55px;
+    width: 90px;
+    z-index: 0;
+}
+
+.timetable .item.color--1 {
+    background-image: url(../images/pattern.png);
+    background-position: left top;
+    background-repeat: repeat;
+}
+
+.timetable .item.color-0 {
+    background-image: url(../images/corner_green.png);
+}
+
+.timetable .item.color-1 {
+    background-image: url(../images/corner_red.png);
+}
+
+.timetable .item.color-2 {
+    background-image: url(../images/corner_purple.png);
+}
+
+.timetable .item.color-3 {
+    background-image: url(../images/corner_yellow.png);
+}
+
+.timetable .item.color-4 {
+    background-image: url(../images/corner_dark_red.png);
+}
+
+.timetable .item.color-5 {
+    background-image: url(../images/corner_dark_blue.png);
 }
