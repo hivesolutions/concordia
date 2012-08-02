@@ -1,0 +1,13 @@
+{
+    "id" : "apalhares",
+    "name" : "Ana Palhares",
+    "timetables" : [
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"]
+    ]
+}

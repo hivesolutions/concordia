@@ -1,0 +1,13 @@
+{
+    "id" : "dgomes",
+    "name" : "Delfina Gomes",
+    "timetables" : [
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"]
+    ]
+}

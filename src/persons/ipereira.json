@@ -1,0 +1,13 @@
+{
+    "id" : "ipereira",
+    "name" : "Inês Pereira",
+    "timetables" : [
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"]
+    ]
+}

@@ -483,3 +483,7 @@ pre {
 .timetable .item.color-7 {
     background-image: url(../images/corner_brown.png);
 }
+
+.debug div {
+    margin: 4px 0px 4px 0px;
+}

@@ -1,0 +1,13 @@
+{
+    "id" : "ssilva",
+    "name" : "Sara Silva",
+    "timetables" : [
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"]
+    ]
+}

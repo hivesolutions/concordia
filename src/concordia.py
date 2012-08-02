@@ -42,6 +42,12 @@ import flask
 
 import schettino
 
+CURRENT_DIRECTORY = os.path.dirname(__file__)
+CURRENT_DIRECTORY_ABS = os.path.abspath(CURRENT_DIRECTORY)
+PROBLEMS_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "problems")
+PERSONS_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "persons")
+TIMETABLES_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "timetables")
+
 app = flask.Flask(__name__)
 
 @app.route("/")
@@ -61,9 +67,13 @@ def about():
 
 @app.route("/timetable")
 def timetable():
-    problem = schettino.problems.simple.SimpleProblem()
+    problem_p = os.path.join(PROBLEMS_FOLDER, "dvt.json")
+    problem = schettino.problems.file.FileProblem.create_problem(
+        problem_p, PERSONS_FOLDER, TIMETABLES_FOLDER
+    )
     schettino.solve(problem, all = False)
     solution = problem.get_structure()
+    report = problem.get_report()
     delta = problem.delta
     instrumentation = problem.instrumentation
 
@@ -71,6 +81,7 @@ def timetable():
         "timetable.html.tpl",
         link = "timetable",
         solution = solution,
+        report = report,
         delta = delta,
         instrumentation = instrumentation
     )

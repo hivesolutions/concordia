@@ -1,0 +1,24 @@
+{
+    "id" : "rjeronimo",
+    "name" : "Rita Jerónimo",
+    "timetables" : [
+        ["morning_s"],
+        ["morning_s"],
+        ["morning_s"],
+        ["morning_s"],
+        ["morning_s"],
+        ["morning", "intermediate", "night"],
+        ["morning", "intermediate", "night"]
+    ],
+    "bitmap" : [
+        1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+    ],
+    "max_hours_day" : 10,
+    "number_days_off" : 0
+}
