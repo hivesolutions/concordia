@@ -8,9 +8,9 @@
     </div>
     <div class="separator-horizontal"></div>
     <div class="quote">
-        Cameria is currently licensed under the much permissive<br />
+        Concordia is currently licensed under the much permissive<br />
         <strong>GNU General Public License (GPL), Version 3</strong>
         and the<br/>
-        current repository is hosted at <a href="https://github.com/hivesolutions/cameria">github</a>.
+        current repository is hosted at <a href="https://github.com/hivesolutions/concordia">github</a>.
     </div>
 {% endblock %}
