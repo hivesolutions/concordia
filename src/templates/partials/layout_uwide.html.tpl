@@ -24,21 +24,21 @@
                 {% endif %}
                 //
                 {% if link == "problems" %}
-                    <a href="#" class="active">problems</a>
+                    <a href="{{ url_for('list_problem') }}" class="active">problems</a>
                 {% else %}
-                    <a href="#">problems</a>
+                    <a href="{{ url_for('list_problem') }}">problems</a>
                 {% endif %}
                 //
                 {% if link == "persons" %}
-                    <a href="#" class="active">persons</a>
+                    <a href="{{ url_for('list_person') }}" class="active">persons</a>
                 {% else %}
-                    <a href="#">persons</a>
+                    <a href="{{ url_for('list_person') }}">persons</a>
                 {% endif %}
                 //
                 {% if link == "tables" %}
-                    <a href="#" class="active">tables</a>
+                    <a href="{{ url_for('list_table') }}" class="active">tables</a>
                 {% else %}
-                    <a href="#">tables</a>
+                    <a href="{{ url_for('list_table') }}">tables</a>
                 {% endif %}
                 //
                 {% if link == "about" %}

@@ -36,9 +36,9 @@
                 {% endif %}
                 //
                 {% if link == "tables" %}
-                    <a href="#" class="active">tables</a>
+                    <a href="{{ url_for('list_table') }}" class="active">tables</a>
                 {% else %}
-                    <a href="#">tables</a>
+                    <a href="{{ url_for('list_table') }}">tables</a>
                 {% endif %}
                 //
                 {% if link == "about" %}

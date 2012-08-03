@@ -132,6 +132,27 @@ def show_person(id):
         person = person
     )
 
+@app.route("/tables", methods = ("GET",))
+def list_table():
+    tables = get_tables()
+
+    return flask.render_template(
+        "tables_list.html.tpl",
+        link = "tables",
+        tables = tables
+    )
+
+@app.route("/tables/<id>", methods = ("GET",))
+def show_table(id):
+    table = get_table(id)
+
+    return flask.render_template(
+        "tables_show.html.tpl",
+        link = "tables",
+        sub_link = "show",
+        table = table
+    )
+
 @app.errorhandler(404)
 def handler_404(error):
     return str(error)
@@ -207,6 +228,35 @@ def get_person(id):
     finally: person_file.close()
 
     return person
+
+def get_tables():
+    tables_directory = os.path.join(TIMETABLES_FOLDER)
+    if not os.path.exists(tables_directory): raise RuntimeError("tables directory does not exist")
+    entries = os.listdir(tables_directory)
+    entries.sort()
+
+    tables = []
+
+    for entry in entries:
+        base, extension = os.path.splitext(entry)
+        if not extension == ".json": continue
+
+        table = get_table(base)
+        tables.append(table)
+
+    return tables
+
+def get_table(id):
+    # retrieves the path to the (target) table (configuration) file and
+    # check if it exists then opens it and loads the json configuration
+    # contained in it to table it in the template
+    table_path = os.path.join(TIMETABLES_FOLDER, "%s.json" % id)
+    if not os.path.exists(table_path): raise RuntimeError("table file does not exist")
+    table_file = open(table_path, "rb")
+    try: table = json.load(table_file)
+    finally: table_file.close()
+
+    return table
 
 def run():
     # sets the debug control in the application
