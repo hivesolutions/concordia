@@ -38,6 +38,7 @@ __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
 import os
+import json
 import flask
 
 import schettino
@@ -50,40 +51,85 @@ TIMETABLES_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "timetables")
 
 app = flask.Flask(__name__)
 
-@app.route("/")
-@app.route("/index")
+@app.route("/", methods = ("GET",))
+@app.route("/index", methods = ("GET",))
 def index():
     return flask.render_template(
         "index.html.tpl",
         link = "home"
     )
 
-@app.route("/about")
+@app.route("/about", methods = ("GET",))
 def about():
     return flask.render_template(
         "about.html.tpl",
         link = "about"
     )
 
-@app.route("/timetable")
-def timetable():
-    problem_p = os.path.join(PROBLEMS_FOLDER, "dvt.json")
-    problem = schettino.problems.file.FileProblem.create_problem(
-        problem_p, PERSONS_FOLDER, TIMETABLES_FOLDER
-    )
-    schettino.solve(problem, all = False)
-    solution = problem.get_structure()
-    report = problem.get_report()
-    delta = problem.delta
-    instrumentation = problem.instrumentation
+@app.route("/problems", methods = ("GET",))
+def list_problem():
+    problems = get_problems()
 
     return flask.render_template(
-        "timetable.html.tpl",
-        link = "timetable",
+        "problems_list.html.tpl",
+        link = "problems",
+        problems = problems
+    )
+
+@app.route("/problems/<id>", methods = ("GET",))
+def show_problem(id):
+    problem = get_problem(id)
+
+    return flask.render_template(
+        "problems_show.html.tpl",
+        link = "problems",
+        sub_link = "show",
+        problem = problem
+    )
+
+@app.route("/problems/run/<id>", methods = ("GET",))
+def run_problem(id):
+    problem = get_problem(id)
+    problem_p = os.path.join(PROBLEMS_FOLDER, "%s.json" % id)
+    problem_s = schettino.problems.file.FileProblem.create_problem(
+        problem_p, PERSONS_FOLDER, TIMETABLES_FOLDER
+    )
+    schettino.solve(problem_s, all = False)
+    solution = problem_s.get_structure()
+    report = problem_s.get_report()
+    delta = problem_s.delta
+    instrumentation = problem_s.instrumentation
+
+    return flask.render_template(
+        "problems_run.html.tpl",
+        link = "problems",
+        sub_link = "run",
+        problem = problem,
         solution = solution,
         report = report,
         delta = delta,
         instrumentation = instrumentation
+    )
+
+@app.route("/persons", methods = ("GET",))
+def list_person():
+    persons = get_persons()
+
+    return flask.render_template(
+        "persons_list.html.tpl",
+        link = "persons",
+        persons = persons
+    )
+
+@app.route("/persons/<id>", methods = ("GET",))
+def show_person(id):
+    person = get_person(id)
+
+    return flask.render_template(
+        "persons_show.html.tpl",
+        link = "persons",
+        sub_link = "show",
+        person = person
     )
 
 @app.errorhandler(404)
@@ -103,6 +149,64 @@ def handler_exception(error):
     traceback.print_exc(file=sys.stdout)
     print '-' * 60
     return str(error)
+
+def get_problems():
+    problems_directory = os.path.join(PROBLEMS_FOLDER)
+    if not os.path.exists(problems_directory): raise RuntimeError("Problems directory does not exist")
+    entries = os.listdir(problems_directory)
+    entries.sort()
+
+    problems = []
+
+    for entry in entries:
+        base, extension = os.path.splitext(entry)
+        if not extension == ".json": continue
+
+        problem = get_problem(base)
+        problems.append(problem)
+
+    return problems
+
+def get_problem(id):
+    # retrieves the path to the (target) problem (configuration) file and
+    # check if it exists then opens it and loads the json configuration
+    # contained in it to problem it in the template
+    problem_path = os.path.join(PROBLEMS_FOLDER, "%s.json" % id)
+    if not os.path.exists(problem_path): raise RuntimeError("Problem file does not exist")
+    problem_file = open(problem_path, "rb")
+    try: problem = json.load(problem_file)
+    finally: problem_file.close()
+
+    return problem
+
+def get_persons():
+    persons_directory = os.path.join(PERSONS_FOLDER)
+    if not os.path.exists(persons_directory): raise RuntimeError("Persons directory does not exist")
+    entries = os.listdir(persons_directory)
+    entries.sort()
+
+    persons = []
+
+    for entry in entries:
+        base, extension = os.path.splitext(entry)
+        if not extension == ".json": continue
+
+        person = get_person(base)
+        persons.append(person)
+
+    return persons
+
+def get_person(id):
+    # retrieves the path to the (target) person (configuration) file and
+    # check if it exists then opens it and loads the json configuration
+    # contained in it to person it in the template
+    person_path = os.path.join(PERSONS_FOLDER, "%s.json" % id)
+    if not os.path.exists(person_path): raise RuntimeError("Person file does not exist")
+    person_file = open(person_path, "rb")
+    try: person = json.load(person_file)
+    finally: person_file.close()
+
+    return person
 
 def run():
     # sets the debug control in the application

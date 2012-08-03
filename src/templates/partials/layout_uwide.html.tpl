@@ -17,10 +17,28 @@
                     <a href="{{ url_for('index') }}">home</a>
                 {% endif %}
                 //
-                {% if link == "timetable" %}
-                    <a href="{{ url_for('timetable') }}" class="active">timetable</a>
+                {% if link == "sets" %}
+                    <a href="#" class="active">sets</a>
                 {% else %}
-                    <a href="{{ url_for('timetable') }}">timetable</a>
+                    <a href="#">sets</a>
+                {% endif %}
+                //
+                {% if link == "problems" %}
+                    <a href="#" class="active">problems</a>
+                {% else %}
+                    <a href="#">problems</a>
+                {% endif %}
+                //
+                {% if link == "persons" %}
+                    <a href="#" class="active">persons</a>
+                {% else %}
+                    <a href="#">persons</a>
+                {% endif %}
+                //
+                {% if link == "tables" %}
+                    <a href="#" class="active">tables</a>
+                {% else %}
+                    <a href="#">tables</a>
                 {% endif %}
                 //
                 {% if link == "about" %}
