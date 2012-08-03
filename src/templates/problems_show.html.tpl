@@ -28,4 +28,30 @@
             </tr>
         </tbody>
     </table>
+    <div class="separator-horizontal"></div>
+    <table>
+        <tbody>
+            <tr>
+                <td class="right label" width="50%">persons</td>
+                <td class="left value" width="50%">
+                    {% for person, priority in problem.persons %}
+                        <a href="{{ url_for('show_person', id = person) }}">{{ person }}</a> [{{ priority }}]{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td class="right label" width="50%">timetables</td>
+                <td class="left value" width="50%">
+                    {% for timetables in problem.timetables %}
+                        [
+                        {% for timetable in timetables %}
+                            <a href="{{ url_for('show_table', id = timetable) }}">{{ timetable }}</a>{% if not loop.last %},{% endif %}
+                        {% endfor %}
+                        ]
+                        {% if not loop.last %}<br />{% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}

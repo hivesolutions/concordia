@@ -7,5 +7,11 @@
         {% else %}
             <a href="{{ url_for('show_set', id = set.id) }}">show</a>
         {% endif %}
+        //
+        {% if sub_link == "run" %}
+            <a href="#" class="active">run</a>
+        {% else %}
+            <a href="#">run</a>
+        {% endif %}
     </div>
 {% endblock %}
