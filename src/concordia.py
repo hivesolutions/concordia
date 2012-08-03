@@ -45,6 +45,7 @@ import schettino
 
 CURRENT_DIRECTORY = os.path.dirname(__file__)
 CURRENT_DIRECTORY_ABS = os.path.abspath(CURRENT_DIRECTORY)
+SETS_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "sets")
 PROBLEMS_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "problems")
 PERSONS_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "persons")
 TIMETABLES_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "timetables")
@@ -64,6 +65,27 @@ def about():
     return flask.render_template(
         "about.html.tpl",
         link = "about"
+    )
+
+@app.route("/sets", methods = ("GET",))
+def list_set():
+    sets = get_sets()
+
+    return flask.render_template(
+        "sets_list.html.tpl",
+        link = "sets",
+        sets = sets
+    )
+
+@app.route("/sets/<id>", methods = ("GET",))
+def show_set(id):
+    set = get_set(id)
+
+    return flask.render_template(
+        "sets_show.html.tpl",
+        link = "sets",
+        sub_link = "show",
+        set = set
     )
 
 @app.route("/problems", methods = ("GET",))
@@ -170,6 +192,35 @@ def handler_exception(error):
     traceback.print_exc(file=sys.stdout)
     print '-' * 60
     return str(error)
+
+def get_sets():
+    sets_directory = os.path.join(SETS_FOLDER)
+    if not os.path.exists(sets_directory): raise RuntimeError("Sets directory does not exist")
+    entries = os.listdir(sets_directory)
+    entries.sort()
+
+    sets = []
+
+    for entry in entries:
+        base, extension = os.path.splitext(entry)
+        if not extension == ".json": continue
+
+        set = get_set(base)
+        sets.append(set)
+
+    return sets
+
+def get_set(id):
+    # retrieves the path to the (target) set (configuration) file and
+    # check if it exists then opens it and loads the json configuration
+    # contained in it to set it in the template
+    set_path = os.path.join(SETS_FOLDER, "%s.json" % id)
+    if not os.path.exists(set_path): raise RuntimeError("Set file does not exist")
+    set_file = open(set_path, "rb")
+    try: set = json.load(set_file)
+    finally: set_file.close()
+
+    return set
 
 def get_problems():
     problems_directory = os.path.join(PROBLEMS_FOLDER)

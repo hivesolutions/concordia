@@ -18,9 +18,9 @@
                 {% endif %}
                 //
                 {% if link == "sets" %}
-                    <a href="#" class="active">sets</a>
+                    <a href="{{ url_for('list_set') }}" class="active">sets</a>
                 {% else %}
-                    <a href="#">sets</a>
+                    <a href="{{ url_for('list_set') }}">sets</a>
                 {% endif %}
                 //
                 {% if link == "problems" %}
