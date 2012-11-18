@@ -1,1 +1,1 @@
-web: python src/concordia.py
+web: cd src && gunicorn concordia:app -b 0.0.0.0:$PORT -w 3

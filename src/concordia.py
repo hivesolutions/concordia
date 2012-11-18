@@ -309,6 +309,13 @@ def get_table(id):
 
     return table
 
+def load():
+    # sets the global wide application settings and
+    # configures the application object according to
+    # this settings
+    debug = os.environ.get("DEBUG", False) and True or False
+    app.debug = debug
+
 def run():
     # sets the debug control in the application
     # then checks the current environment variable
@@ -326,5 +333,5 @@ def run():
         port = port
     )
 
-if __name__ == "__main__":
-    run()
+if __name__ == "__main__": run()
+else: load()
