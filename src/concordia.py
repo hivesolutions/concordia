@@ -313,4 +313,4 @@ def get_table(id):
     return table
 
 if __name__ == "__main__":
-    quorum.run()
+    quorum.run(server = "waitress")
