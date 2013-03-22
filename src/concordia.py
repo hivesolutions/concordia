@@ -52,8 +52,7 @@ PROBLEMS_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "problems")
 PERSONS_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "persons")
 TIMETABLES_FOLDER = os.path.join(CURRENT_DIRECTORY_ABS, "timetables")
 
-app = flask.Flask(__name__)
-quorum.load(app)
+app = quorum.load(name = __name__)
 
 @app.route("/", methods = ("GET",))
 @app.route("/index", methods = ("GET",))
