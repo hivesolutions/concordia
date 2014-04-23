@@ -3,6 +3,7 @@
 	<name>concordia</name>
 	<comment></comment>
 	<projects>
+		<project>quorum</project>
 		<project>schettino</project>
 	</projects>
 	<buildSpec>
