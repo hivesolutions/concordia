@@ -32,32 +32,32 @@
         var items = jQuery(".timetable .item", matchedObject);
 
         items.mouseover(function() {
-                    var element = jQuery(this);
-                    items.removeClass("hover");
-                    element.addClass("hover");
+            var element = jQuery(this);
+            items.removeClass("hover");
+            element.addClass("hover");
 
-                    setTimeout(function() {
-                                var hasMouse = element.hasClass("hover");
-                                if (!hasMouse) {
-                                    return;
-                                }
-                                element.addClass("top");
-                            }, 1000);
-                });
+            setTimeout(function() {
+                var hasMouse = element.hasClass("hover");
+                if (!hasMouse) {
+                    return;
+                }
+                element.addClass("top");
+            }, 1000);
+        });
 
         items.mouseout(function() {
-                    var element = jQuery(this);
-                    element.removeClass("hover");
-                    setTimeout(function() {
-                                element.removeClass("top");
-                            }, 300);
-                });
+            var element = jQuery(this);
+            element.removeClass("hover");
+            setTimeout(function() {
+                element.removeClass("top");
+            }, 300);
+        });
     };
 })(jQuery);
 
 jQuery(document).ready(function() {
-            var _body = jQuery("body");
-            _body.bind("applied", function(event, base) {
-                        base.uapply();
-                    });
-        });
+    var _body = jQuery("body");
+    _body.bind("applied", function(event, base) {
+        base.uapply();
+    });
+});

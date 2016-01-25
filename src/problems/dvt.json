@@ -1,21 +1,21 @@
 {
-    "id" : "dvt",
-    "name" : "Dolce Vita Tejo",
-    "number_days" : 7,
-    "number_hours" : 13,
-    "number_days_off" : 1,
-    "max_hours_day" : 7,
-    "max_days_week" : 6,
-    "rules" : [],
-    "days_off" : [2, 3, 4],
-    "persons" : [
+    "id": "dvt",
+    "name": "Dolce Vita Tejo",
+    "number_days": 7,
+    "number_hours": 13,
+    "number_days_off": 1,
+    "max_hours_day": 7,
+    "max_days_week": 6,
+    "rules": [],
+    "days_off": [2, 3, 4],
+    "persons": [
         ["rjeronimo", 1],
         ["mlenok", 1],
         ["ipereira", 1],
         ["ssilva", 1],
         ["dgomes", 2]
-       ],
-    "timetables" : [
+    ],
+    "timetables": [
         ["morning_s", "intermediate", "night"],
         ["morning_s", "intermediate", "night"],
         ["morning_s", "intermediate", "night"],
@@ -24,7 +24,7 @@
         ["morning", "intermediate", "night"],
         ["morning", "intermediate", "night"]
     ],
-    "bitmap" : [
+    "bitmap": [
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,

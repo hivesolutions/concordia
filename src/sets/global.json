@@ -1,5 +1,5 @@
 {
-    "id" : "global",
-    "name" : "Global",
-    "problems" : ["dvt", "jt"]
+    "id": "global",
+    "name": "Global",
+    "problems": ["dvt", "jt"]
 }

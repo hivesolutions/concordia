@@ -1,7 +1,7 @@
 {
-    "id" : "intermediate",
-    "name" : "Intermediate",
-    "bitmask" : [
+    "id": "intermediate",
+    "name": "Intermediate",
+    "bitmask": [
         0, 0, 2, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0,
         0, 0, 2, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0,
         0, 0, 2, 1, 1, 1, 3, 1, 0, 0, 0, 0, 0,

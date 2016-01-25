@@ -1,7 +1,7 @@
 {
-    "id" : "mlenok",
-    "name" : "Maryna Lenok",
-    "timetables" : [
+    "id": "mlenok",
+    "name": "Maryna Lenok",
+    "timetables": [
         ["morning", "intermediate", "night"],
         ["morning", "intermediate", "night"],
         ["morning", "intermediate", "night"],
