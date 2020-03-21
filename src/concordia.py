@@ -214,7 +214,7 @@ def get_sets():
 
 def get_set(id):
     # retrieves the path to the (target) set (configuration) file and
-    # check if it exists then opens it and loads the json configuration
+    # check if it exists then opens it and loads the JSON configuration
     # contained in it to set it in the template
     set_path = os.path.join(SETS_FOLDER, "%s.json" % id)
     if not os.path.exists(set_path): raise RuntimeError("Set file does not exist")
@@ -243,7 +243,7 @@ def get_problems():
 
 def get_problem(id):
     # retrieves the path to the (target) problem (configuration) file and
-    # check if it exists then opens it and loads the json configuration
+    # check if it exists then opens it and loads the JSON configuration
     # contained in it to problem it in the template
     problem_path = os.path.join(PROBLEMS_FOLDER, "%s.json" % id)
     if not os.path.exists(problem_path): raise RuntimeError("Problem file does not exist")
@@ -272,7 +272,7 @@ def get_persons():
 
 def get_person(id):
     # retrieves the path to the (target) person (configuration) file and
-    # check if it exists then opens it and loads the json configuration
+    # check if it exists then opens it and loads the JSON configuration
     # contained in it to person it in the template
     person_path = os.path.join(PERSONS_FOLDER, "%s.json" % id)
     if not os.path.exists(person_path): raise RuntimeError("Person file does not exist")
@@ -301,7 +301,7 @@ def get_tables():
 
 def get_table(id):
     # retrieves the path to the (target) table (configuration) file and
-    # check if it exists then opens it and loads the json configuration
+    # check if it exists then opens it and loads the JSON configuration
     # contained in it to table it in the template
     table_path = os.path.join(TIMETABLES_FOLDER, "%s.json" % id)
     if not os.path.exists(table_path): raise RuntimeError("table file does not exist")
